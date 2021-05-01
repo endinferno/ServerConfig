@@ -128,35 +128,6 @@ set autoread
 set cursorline      "突出显示当前行"
 set cursorcolumn        "突出显示当前列"
 
-"###################    set file head start  #########################
-"autocmd创建新文件自动调用setfilehead()函数
-"autocmd BufNewFile *.v,*.sv,*.cpp,*.c,*.h,*.py,*.java exec ":call Setfilehead()"
-func Setfilehead()
-	call append(0, '"""****************************************************')
-	call append(1, '#')
-	call append(2, '#      Filename: '.expand("%"))
-	call append(3, '#')
-	call append(4, '#        Author: endinferno - censhaofeng@buaa.edu.cn')
-	call append(5, '#   Description: ---')
-	call append(6, '# File Encoding: UTF-8')
-	call append(7, '#        Create: '.strftime("%Y-%m-%d %H:%M:%S"))
-	call append(8, '# Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
-	call append(9, '*****************************************************"""')
-	"    call append(9, '')
-endfunc
-
-"map F2 to creat file head comment
-"映射F2快捷键，生成后跳转至第10行，然后使用o进入vim的插入模式
-map <F2> :call Setfilehead()<CR>:10<CR>
-"###################    set file head end   ##########################
-
-func SatisfyTime()
-	call append(8, '# Last Modified: '.strftime("%Y-%m-%d %H:%M:%S"))
-endfunc
-
-map <F3> dd:call SatisfyTime()<CR>
-
-
 function! SetupCommandAbbrs(from, to)
 	exec 'cnoreabbrev <expr> '.a:from
 				\ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
@@ -182,7 +153,6 @@ let g:lightline = {
 			\   'currentfunction': 'CocCurrentFunction'
 			\ },
 			\ }
-
 
 
 " if hidden is not set, TextEdit might fail.
@@ -320,7 +290,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Clean'     :'✔︎',
                 \ 'Unknown'   :'?',
                 \ }
-" coc-git
 
 au BufNewFile,BufRead *.md set spell
 au BufNewFile,BufRead *.vimrc set nospell

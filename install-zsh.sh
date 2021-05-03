@@ -15,7 +15,7 @@ elif["$(expr substr $(uname -s) 1 10)"=="MINGW32_NT"];then
 	# Windows
 fi
 cd ~/.oh-my-zsh/plugins
-for plugin in 'colored-man-pages' 'common-aliases' 'extract' 'git' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search'
+for plugin in 'colored-man-pages' 'common-aliases' 'docker' 'extract' 'fzf' 'git' 'golang' 'kubectl' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search'
 do
 	res=$(ls -lh | grep " \<$plugin\>$")
 	if [ -z "$res" ]; then
@@ -26,9 +26,17 @@ do
 				;;
 			'common-aliases')
 				;;
+			'docker')
+				;;
 			'extract')
 				;;
+			'fzf')
+				;;
 			'git')
+				;;
+			'golang')
+				;;
+			'kubectl')
 				;;
 			'sudo')
 				;;

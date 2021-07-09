@@ -1,8 +1,8 @@
 #!/bin/bash
 
 mkdir ~/clash && cd ~/clash
-mv clash/clash ~/clash
-mv clash/start_clash.sh ~/clash
+mv ./clash/clash ~/clash
+mv ./clash/start_clash.sh ~/clash
 scp root@121.5.185.52:~/file/config.yaml ~/clash
 chmod +x ~/clash/clash
 chmod +x ~/clash/start_clash.sh

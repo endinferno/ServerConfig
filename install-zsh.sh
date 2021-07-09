@@ -28,7 +28,7 @@ else
 fi
 cd ~/.oh-my-zsh/plugins
 echo "Start Adding ZSH Plugins"
-for plugin in 'colored-man-pages' 'common-aliases' 'docker' 'extract' 'fzf' 'git' 'golang' 'kubectl' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search'
+for plugin in 'colored-man-pages' 'common-aliases' 'docker' 'extract' 'git' 'golang' 'kubectl' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search'
 do
 	res=$(ls -lh | grep " \<$plugin\>$")
 	if [ -z "$res" ]; then
@@ -42,8 +42,6 @@ do
 			'docker')
 				;;
 			'extract')
-				;;
-			'fzf')
 				;;
 			'git')
 				;;

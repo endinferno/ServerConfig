@@ -71,3 +71,4 @@ do
 		esac
 	fi
 done
+# TODO: add time to zsh robbyrussell themem

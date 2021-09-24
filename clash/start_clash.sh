@@ -1,6 +1,0 @@
-#!/bin/bash
-
-VPN_BASE=$HOME
-VPN_FOLDER_NAME=clash
-VPN_HOME=$VPN_BASE/$VPN_FOLDER_NAME
-nohup $VPN_HOME/clash -d $VPN_HOME 2>&1 > $VPN_HOME/log &

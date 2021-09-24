@@ -15,5 +15,5 @@ chmod +x $VPN_HOME/clash
 chmod +x $VPN_HOME/start_clash.sh
 echo "alias start-proxy=\"export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890\"
 alias close-proxy=\"unset https_proxy && unset http_proxy && unset all_proxy\"" >> ~/.bashrc
-/bin/bash $VPN_HOME/start_clash.sh
+/bin/bash $VPN_HOME/start-clash.sh
 source ~/.bashrc

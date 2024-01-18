@@ -8,7 +8,6 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdcommenter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jackguo380/vim-lsp-cxx-highlight'
 Plug 'tpope/vim-surround'
 Plug 'wakatime/vim-wakatime'
 Plug 'Yggdroot/indentLine'
@@ -297,7 +296,6 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 au BufNewFile,BufRead *.md set spell
 au BufNewFile,BufRead *.vimrc set nospell
 
-let g:lsp_cxx_hl_use_text_props = 1
 hi NonText guifg=bg
 
 " Coc-Git

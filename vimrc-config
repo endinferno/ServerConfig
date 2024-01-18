@@ -125,6 +125,7 @@ set fileformat=unix
 set cindent
 set smartindent
 set tabstop=4
+set expandtab
 set shiftwidth=4
 set showmatch
 set scrolloff=5
@@ -138,7 +139,6 @@ set matchtime=5
 set ignorecase
 set incsearch
 set hlsearch
-set noexpandtab
 set whichwrap+=<,>,h,l
 set autoread
 set cursorline
@@ -159,7 +159,7 @@ function! CocCurrentFunction()
 endfunction
 
 let g:lightline = {
-			\ 'colorscheme': 'wombat',
+            \ 'colorscheme': 'wombat',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'cocstatus', 'currentfunction', 'readonly', 'filename', 'modified' ] ]
@@ -181,7 +181,7 @@ set signcolumn=yes
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -198,11 +198,11 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call ShowDocumentation()<CR>
 
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+    if CocAction('hasProvider', 'hover')
+        call CocActionAsync('doHover')
+    else
+        call feedkeys('K', 'in')
+    endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -350,6 +350,6 @@ let g:Lf_DevIconsFont = "Font Awesome"
 set ambiwidth=double
 let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_WildIgnore = {
-			\ 'dir': ["build", "dependencies"],
-			\ 'file': []
-			\}
+            \ 'dir': ["build", "dependencies"],
+            \ 'file': []
+            \}

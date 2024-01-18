@@ -11,11 +11,13 @@ ZSH_THEME="robbyrussell"
 # ZSH_THEME="ys"
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd"
-plugins=(colored-man-pages common-aliases docker extract git golang kubectl sudo z fz zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(colored-man-pages common-aliases docker extract git golang kubectl sudo z fz zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search zsh-vi-mode)
 autoload -U compinit && compinit
 source $ZSH/oh-my-zsh.sh
 
 alias uvim="vim -u NONE"
 alias ll="ls -lh"
+alias rm="trash-put"
 alias start-proxy="export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890"
 alias close-proxy="unset https_proxy && unset http_proxy && unset all_proxy"
+export PATH=$HOME/.local/bin:$PATH

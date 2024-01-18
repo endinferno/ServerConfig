@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if [ `whoami` = "root" ];then
-	prefix=""
+    prefix=""
 else
-	prefix="sudo"
+    prefix="sudo"
 fi
 $prefix apt install python3-dev
 if [ $# != 1 ] ; then
-	echo "Not Input Python3 Config Folder Path, exit!"
-	exit 1
+    echo "Not Input Python3 Config Folder Path, exit!"
+    exit 1
 fi
 # Remove vim first
 $prefix apt remove -y vim vim-runtime vim-tiny vim-common vim-doc vim-scripts

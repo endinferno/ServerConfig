@@ -5,7 +5,7 @@ VPN_FOLDER_NAME=clash
 VPN_HOME=$VPN_BASE/$VPN_FOLDER_NAME
 if [ ! -d "$VPN_HOME" ]
 then
-  mkdir $VPN_HOME
+    mkdir $VPN_HOME
 fi
 cp ./clash/clash $VPN_HOME
 cp ./clash/start_clash.sh $VPN_HOME

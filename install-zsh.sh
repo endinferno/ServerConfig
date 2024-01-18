@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ `whoami` = "root" ];then
-	prefix=""
+    prefix=""
 else
-	prefix="sudo"
+    prefix="sudo"
 fi
 $prefix apt update --fix-missing && $prefix apt -y upgrade && $prefix apt autoremove
 $prefix apt -y install curl
@@ -14,64 +14,64 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 cp ./zshrc-config ~/.zshrc
 if [ "$(uname)" == "Darwin" ]
 then
-	# MacOS
-	brew install trash
-	echo "alias rm=\"trash\"" >> ~/.zshrc
+    # MacOS
+    brew install trash
+    echo "alias rm=\"trash\"" >> ~/.zshrc
 elif [ "$(uname)" == "Linux" ]
 then
-	# GNU/Linux
-	$prefix apt install trash-cli
-	echo "alias rm=\"trash-put\"" >> ~/.zshrc
+    # GNU/Linux
+    $prefix apt install trash-cli
+    echo "alias rm=\"trash-put\"" >> ~/.zshrc
 else
-	echo "Not Support"
-	# Not Support
+    echo "Not Support"
+    # Not Support
 fi
 cd ~/.oh-my-zsh/plugins
 echo "Start Adding ZSH Plugins"
 for plugin in 'colored-man-pages' 'common-aliases' 'docker' 'extract' 'git' 'golang' 'kubectl' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search' 'zsh-vi-mode'
 do
-	res=$(ls -lh | grep " \<$plugin\>$")
-	if [ -z "$res" ]; then
-		echo "No Such Plugin"
-		echo "Install " $plugin
-		case $plugin in
-			'colored-man-pages')
-				;;
-			'common-aliases')
-				;;
-			'docker')
-				;;
-			'extract')
-				;;
-			'git')
-				;;
-			'golang')
-				;;
-			'kubectl')
-				;;
-			'sudo')
-				;;
-			'z')
-				;;
-			'fz')
-				git clone https://github.com/changyuheng/fz.git
-				;;
-			'zsh-autosuggestions')
-				git clone  https://github.com/zsh-users/zsh-autosuggestions.git
-				;;
-			'zsh-syntax-highlighting')
-				git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-				;;
-			'zsh-history-substring-search')
-				git clone https://github.com/zsh-users/zsh-history-substring-search.git
-				;;
-			'zsh-vi-mode')
-				git clone git@github.com:jeffreytse/zsh-vi-mode.git
-				;;
-			*)
-				echo 'No such plugin'
-				;;
-		esac
-	fi
+    res=$(ls -lh | grep " \<$plugin\>$")
+    if [ -z "$res" ]; then
+        echo "No Such Plugin"
+        echo "Install " $plugin
+        case $plugin in
+            'colored-man-pages')
+                ;;
+            'common-aliases')
+                ;;
+            'docker')
+                ;;
+            'extract')
+                ;;
+            'git')
+                ;;
+            'golang')
+                ;;
+            'kubectl')
+                ;;
+            'sudo')
+                ;;
+            'z')
+                ;;
+            'fz')
+                git clone https://github.com/changyuheng/fz.git
+                ;;
+            'zsh-autosuggestions')
+                git clone  https://github.com/zsh-users/zsh-autosuggestions.git
+                ;;
+            'zsh-syntax-highlighting')
+                git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+                ;;
+            'zsh-history-substring-search')
+                git clone https://github.com/zsh-users/zsh-history-substring-search.git
+                ;;
+            'zsh-vi-mode')
+                git clone git@github.com:jeffreytse/zsh-vi-mode.git
+                ;;
+            *)
+                echo 'No such plugin'
+                ;;
+        esac
+    fi
 done
 # TODO: add time to zsh robbyrussell themem

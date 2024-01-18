@@ -1,0 +1,35 @@
+{
+    "inlayHint.enable": false,
+    "clangd.path": "/home/ubuntu/software/clangd/bin/clangd",
+    "clangd.disableDiagnostics": false,
+    "clangd.fallbackFlags": [
+        "-std=c++17"
+    ],
+    "semanticTokens.enable": true,
+
+    "suggest.minTriggerInputLength": 1,
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "python.linting.enabled": false,
+    "python.linting.pep8Enabled": true,
+    "python.analysis.disabled": [
+        "unresolved-import"
+    ],
+    "python.linting.pep8Args": [
+        "--max-line-length=120",
+        "--ignore=E501"
+    ],
+
+    "git.enableGutters": true,
+    "git.branchCharacter": "\uf408",
+    "git.virtualTextPrefix": " ❯❯❯ ",
+    "git.addedSign.hlGroup": "GitGutterAdd",
+    "git.changedSign.hlGroup": "GitGutterChange",
+    "git.removedSign.hlGroup": "GitGutterDelete",
+    "git.topRemovedSign.hlGroup": "GitGutterDelete",
+    "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+    "git.addedSign.text": "▎",
+    "git.changedSign.text": "▎",
+    "git.removedSign.text": "▏",
+    "git.topRemovedSign.text": "▔",
+    "git.changeRemovedSign.text": "▋"
+}

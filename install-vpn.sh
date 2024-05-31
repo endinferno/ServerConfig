@@ -15,6 +15,7 @@ CopyVPNFile()
     echo "Copy VPN files to $1"
     cp ./clash/clash $1
     cp ./clash/start-clash $1
+    cp ./clash/stop-clash $1
     cp ./clash/Country.mmdb $1
     cp ./clash/Country.mmdb $2
     chmod +x $1/clash

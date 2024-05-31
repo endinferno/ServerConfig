@@ -24,7 +24,7 @@ VIM_HOME=$SOFTWARE_BASE/vim
 
 echo "Compile and install vim"
 pushd ${VIM_HOME}
-./configure --prefix=$(pwd)/install
+./configure --prefix=$(pwd)/install \
     --enable-fontset \
     --enable-terminal \
     --enable-multibyte \

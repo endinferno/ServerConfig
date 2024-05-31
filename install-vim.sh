@@ -1,5 +1,15 @@
 #!/bin/bash
 
+CheckDirExist()
+{
+    if [ ! -d $1 ];then
+        echo "$1 Doesn't exist, create!"
+        mkdir -p $1
+    else
+        echo "$1 exist, pass!"
+    fi
+}
+
 if [ `whoami` = "root" ];then
     prefix=""
 else

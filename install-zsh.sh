@@ -5,12 +5,15 @@ if [ `whoami` = "root" ];then
 else
     prefix="sudo"
 fi
+echo "Update apt software"
 $prefix apt update --fix-missing && $prefix apt -y upgrade && $prefix apt autoremove
+echo "Install curl"
 $prefix apt -y install curl
+echo "Install zsh"
 $prefix apt -y install zsh
 # TODO: check if ~/.oh-my-zsh exists
 echo "Start Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/endinferno/ohmyzsh/master/tools/install.sh)"
 cp ./zshrc-config ~/.zshrc
 if [ "$(uname)" == "Darwin" ]
 then
@@ -26,52 +29,3 @@ else
     echo "Not Support"
     # Not Support
 fi
-cd ~/.oh-my-zsh/plugins
-echo "Start Adding ZSH Plugins"
-for plugin in 'colored-man-pages' 'common-aliases' 'docker' 'extract' 'git' 'golang' 'kubectl' 'sudo' 'z' 'fz' 'zsh-autosuggestions' 'zsh-syntax-highlighting' 'zsh-history-substring-search' 'zsh-vi-mode'
-do
-    res=$(ls -lh | grep " \<$plugin\>$")
-    if [ -z "$res" ]; then
-        echo "No Such Plugin"
-        echo "Install " $plugin
-        case $plugin in
-            'colored-man-pages')
-                ;;
-            'common-aliases')
-                ;;
-            'docker')
-                ;;
-            'extract')
-                ;;
-            'git')
-                ;;
-            'golang')
-                ;;
-            'kubectl')
-                ;;
-            'sudo')
-                ;;
-            'z')
-                ;;
-            'fz')
-                git clone https://github.com/changyuheng/fz.git
-                ;;
-            'zsh-autosuggestions')
-                git clone  https://github.com/zsh-users/zsh-autosuggestions.git
-                ;;
-            'zsh-syntax-highlighting')
-                git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-                ;;
-            'zsh-history-substring-search')
-                git clone https://github.com/zsh-users/zsh-history-substring-search.git
-                ;;
-            'zsh-vi-mode')
-                git clone git@github.com:jeffreytse/zsh-vi-mode.git
-                ;;
-            *)
-                echo 'No such plugin'
-                ;;
-        esac
-    fi
-done
-# TODO: add time to zsh robbyrussell themem

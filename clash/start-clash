@@ -1,0 +1,16 @@
+#!/bin/bash
+
+SOFTWARE_BASE=$HOME/software
+CLASH_BASE=$SOFTWARE_BASE/clash
+CLASH_BINARY=$CLASH_BASE/clash
+CLASH_YAML=$CLASH_BASE/clash.yaml
+CLASH_LOG=$CLASH_BASE/clash.log
+CLASH_PID_LIST=$(ps -aux | grep -v grep | grep clash | grep yaml | awk -F ' ' '{print $2}')
+if [[ ! -z "$CLASH_PID_LIST" ]]
+then
+        kill -9 $CLASH_PID_LIST
+fi
+if [ -f "$CLASH_LOG" ]; then
+        rm $CLASH_LOG
+fi
+nohup $CLASH_BINARY -f $CLASH_YAML > $CLASH_LOG 2>&1 &

@@ -21,10 +21,12 @@ pushd ${SOFTWARE_BASE}
 git clone https://github.com/vim/vim.git
 popd
 VIM_HOME=$SOFTWARE_BASE/vim
+VIM_INSTALL=$VIM_HOME/install
+mkdir -p $VIM_INSTALL
 
 echo "Compile and install vim"
 pushd ${VIM_HOME}
-./configure --prefix=$(pwd)/install \
+./configure --prefix=$VIM_INSTALL \
     --enable-fontset \
     --enable-terminal \
     --enable-multibyte \

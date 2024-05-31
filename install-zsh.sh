@@ -6,7 +6,7 @@ else
     prefix="sudo"
 fi
 echo "Update apt software"
-$prefix apt update --fix-missing && $prefix apt -y upgrade && $prefix apt autoremove
+$prefix apt update --fix-missing && $prefix apt -y upgrade && $prefix apt -y autoremove
 echo "Install curl"
 $prefix apt -y install curl
 echo "Install zsh"

@@ -5,20 +5,31 @@ if [ `whoami` = "root" ];then
 else
     prefix="sudo"
 fi
-$prefix apt install python3-dev
-if [ $# != 1 ] ; then
-    echo "Not Input Python3 Config Folder Path, exit!"
-    exit 1
-fi
-# Remove vim first
+echo "Remove vim"
 $prefix apt remove -y vim vim-runtime vim-tiny vim-common vim-doc vim-scripts
 vim_soft_name=$(dpkg -l | grep vim | awk '{print $2}')
 $prefix dpkg -P $vim_soft_name
 
-CPU_NUM=$(cat /proc/cpuinfo | grep "MHz" | wc -l)
-$prefix apt install python3-dev ruby-dev lua5.1 libncurses-dev
+echo "Install vim dependency"
+$prefix apt install -y python3-dev libncurses5-dev
+
+SOFTWARE_BASE=$HOME/software
+CheckDirExist $SOFTWARE_BASE
+
+echo "Clone vim repo"
+pushd ${SOFTWARE_BASE}
 git clone https://github.com/vim/vim.git
-cd vim
-./configure --enable-fontset --enable-cscope --enable-terminal --enable-multibyte --enable-python3interp=yes --with-python3-config-dir=$1 --enable-luainterp=yes --enable-rubyinterp=yes --enable-perlinterp=yes
-make -j $CPU_NUM
-$prefix make install
+popd
+VIM_HOME=$SOFTWARE_BASE/vim
+
+echo "Compile and install vim"
+pushd ${VIM_HOME}
+./configure --prefix=$(pwd)/install
+    --enable-fontset \
+    --enable-terminal \
+    --enable-multibyte \
+    --enable-python3interp=yes \
+    --with-python3-command=python3
+make -j`nproc`
+make install
+popd

@@ -19,12 +19,10 @@ if [ "$(uname)" == "Darwin" ]
 then
     # MacOS
     brew install trash
-    echo "alias rm=\"trash\"" >> ~/.zshrc
 elif [ "$(uname)" == "Linux" ]
 then
     # GNU/Linux
     $prefix apt install trash-cli
-    echo "alias rm=\"trash-put\"" >> ~/.zshrc
 else
     echo "Not Support"
     # Not Support

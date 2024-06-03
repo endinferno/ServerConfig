@@ -10,15 +10,29 @@ CheckDirExist()
     fi
 }
 
+CheckDirRemove()
+{
+    if [ ! -d $1 ];then
+        echo "$1 Doesn't exist, pass!"
+    else
+        echo "$1 exist, remove!"
+        rm -rf $1
+    fi
+}
+
 if [ `whoami` = "root" ];then
     prefix=""
 else
     prefix="sudo"
 fi
+
 echo "Remove vim"
 $prefix apt remove -y vim vim-runtime vim-tiny vim-common vim-doc vim-scripts
 vim_soft_name=$(dpkg -l | grep vim | awk '{print $2}')
-$prefix dpkg -P $vim_soft_name
+if [[ ! -z "$vim_soft_name" ]]
+then
+	$prefix dpkg -P $vim_soft_name
+fi
 
 echo "Install vim dependency"
 $prefix apt install -y gcc g++ make python3-dev libncurses5-dev
@@ -32,7 +46,7 @@ git clone https://github.com/vim/vim.git
 popd
 VIM_HOME=$SOFTWARE_BASE/vim
 VIM_INSTALL=$VIM_HOME/install
-mkdir -p $VIM_INSTALL
+CheckDirRemove $VIM_INSTLAL
 
 echo "Compile and install vim"
 pushd ${VIM_HOME}

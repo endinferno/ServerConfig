@@ -21,7 +21,7 @@ vim_soft_name=$(dpkg -l | grep vim | awk '{print $2}')
 $prefix dpkg -P $vim_soft_name
 
 echo "Install vim dependency"
-$prefix apt install -y python3-dev libncurses5-dev
+$prefix apt install -y gcc g++ make python3-dev libncurses5-dev
 
 SOFTWARE_BASE=$HOME/software
 CheckDirExist $SOFTWARE_BASE
